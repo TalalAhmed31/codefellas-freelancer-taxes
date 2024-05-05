@@ -1,0 +1,13 @@
+escaped = relevant_passage.replace("'", "").replace('"', "").replace("\n", " ")
+  prompt = ("""
+  PASSAGE: '{relevant_passage}'
+  Above is the paragraph about tax for freelancers. User will possibly ask you to check how much tax he or she has to pay, calculate it by getting percentage from passage and make it possible to tell the user tax amount. Person can also seek guidance regarding filling filer form. keep the response long.
+  QUESTION: '{query}'
+
+  ANSWER:
+  """).format(query=query, relevant_passage=escaped)
+
+  I have opened a software company and i want to file my taxes for year 2024. help me figure it out
+
+  i am a freelancer on upwork earning 10k dollars annually, how much tax would i pay annually? and what are the steps to file tax in pakistan
+  
