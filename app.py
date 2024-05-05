@@ -51,6 +51,9 @@ def split_text(text: str):
 
 import google.generativeai as genai
 import os
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from chromadb import EmbeddingFunction, Embeddings
 
 class GeminiEmbeddingFunction(EmbeddingFunction):
