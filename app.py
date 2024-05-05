@@ -1,5 +1,7 @@
 import os
-os.environ["GEMINI_API_KEY"]="AIzaSyCxd0Gt8gZxFcot6urLX0KJtKxz3rOuQV8"
+from dotenv import load_dotenv
+load_dotenv()
+os.environ["GEMINI_API_KEY"]=os.get_env()
 import streamlit as st
 from pypdf import PdfReader
 
