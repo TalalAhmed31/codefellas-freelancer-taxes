@@ -139,7 +139,7 @@ def make_rag_prompt(query, relevant_passage):
   escaped = relevant_passage.replace("'", "").replace('"', "").replace("\n", " ")
   prompt = ("""
   PASSAGE: '{relevant_passage}'
-  Above is the paragraph about tax for freelancers. User will possibly ask you to check how much tax he or she has to pay, calculate it by getting percentage from passage and make it possible to tell the user tax amount. Person can also seek guidance regarding filling filer form. keep the response long.
+  Above is the paragraph about tax for freelancers. User will possibly ask you to check how much tax he or she has to pay, calculate it by getting percentage from passage and make it possible to tell the user tax amount. Person can also seek guidance regarding filling filer form. keep the response long. Do not give answer outside of the context.
   QUESTION: '{query}'
 
   ANSWER:
