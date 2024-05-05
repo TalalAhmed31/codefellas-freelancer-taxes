@@ -50,8 +50,8 @@ def split_text(text: str):
 
 
 import google.generativeai as genai
-from chromadb import Documents, EmbeddingFunction, Embeddings
 import os
+from chromadb import EmbeddingFunction, Embeddings
 
 class GeminiEmbeddingFunction(EmbeddingFunction):
     """
@@ -61,12 +61,12 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
     to generate embeddings for a given set of documents using the Gemini AI API.
 
     Parameters:
-    - input (Documents): A collection of documents to be embedded.
+    - input (list[str]): A list of documents to be embedded.
 
     Returns:
     - Embeddings: Embeddings generated for the input documents.
     """
-    def __call__(self, input: Documents) -> Embeddings:
+    def __call__(self, input: list[str]) -> Embeddings:
         gemini_api_key = os.getenv("GEMINI_API_KEY")
         if not gemini_api_key:
             raise ValueError("Gemini API Key not provided. Please provide GEMINI_API_KEY as an environment variable")
@@ -77,7 +77,6 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
                                    content=input,
                                    task_type="retrieval_document",
                                    title=title)["embedding"]
-    
 
 import chromadb
 from typing import List
