@@ -1,5 +1,6 @@
 streamlit
 pypdf
 google.generativeai
-chromadb==0.4.5
+chromadb==0.3.29
 python-dotenv
+pysqlite3-binary
